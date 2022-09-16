@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SRBANK</title>
+
+    <!-- css -->
+    <link th:href="@{/css/reset19.css}" href="../css/reset19.css" rel="stylesheet">
+    <link th:href="@{/css/style19.css}" href="../css/style19.css" rel="stylesheet">
+    <link th:href="@{/css/login.css}" href="../css/login.css" rel="stylesheet">
+
+    <!--파비콘-->
+    <link rel="shortcut icon" sizes="16x16" th:href="@{img/favicon.ico}">
+
+    <!-- 웹 폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean"
+          rel="stylesheet">
+
+    <!--스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+    </script>
+        <script th:src="@{/js/login.js}"></script>
+
+</head>
+<body>
+
+<!--로그인-->
+<section id="loginsection">
+    <div class="container">
+        <div class="row">
+            <div class="loginsection clearfix">
+                <article class="help_box2">
+                    <h3><em>로그인</em></h3>
+                    <div id="loginErrorDiv">
+                        <span id="loginError">[[${error}]]</span>
+                    </div>
+                    <div class="login">
+                        <form th:action="@{/login}" id="loginsubmit" method="post">
+                            <div>
+                                <label for="userid">로그인 ID</label>
+                                <input type="text" id="userid" name="userid" class="form-control"
+                                       placeholder="아이디를 입력하세요.">
+                                <span id="idError" class="error"/>
+                            </div>
+                            <div>
+                                <label for="password">비밀번호</label>
+                                <input type="password" id="password" name="password" class="form-control"
+                                       placeholder="비밀번호를 입력하세요.">
+                                <span id="pwError" class="error"/>
+                            </div>
+                            <hr>
+
+                            <div class="button">
+                                <button class="btn1" th:onclick="|location.href='@{/join}'|" type="button">회원가입</button>
+                                <button class="btn2" type="submit">로그인</button>
+                                <button class="btn3" th:onclick="|location.href='@{/}'|" type="button">취소</button>
+                            </div>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--footer-->
+<th:block th:replace="fragments/headerAndFooter :: footerFragment"></th:block>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SRBANK</title>
+
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{/css/reset19.css}">
+    <link rel="stylesheet" th:href="@{/css/style19.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <style>
+
+        button {
+            float: none;
+            padding: 8px;
+            background-color: #3b3939;
+            color: #fff;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            width: 100%;
+        }
+    </style>
+
+    <!--파비콘-->
+    <link rel="shortcut icon" sizes="16x16" th:href="@{img/favicon.ico}">
+
+    <!-- 웹 폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean"
+          rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+    </script>
+    <script th:inline="javascript">
+        let name = [[${member.name}]];
+        let firstPageNum = [[${page.getNumber()}]];
+        let lastPageNum = [[${page.getTotalPages()}]];
+        let accountnumber = [[${selectAccount}]];
+    </script>
+    <script th:src="@{/js/account.js}"></script>
+
+</head>
+<body>
+
+<th:block th:replace="fragments/headerAndFooter :: headerFragment"></th:block>
+
+<section id="help">
+    <div class="container">
+        <div class="row">
+            <div class="help clearfix">
+                <article class="help_box2">
+                    <h3><em>거래내역조회</em></h3>
+                    <div class="card">
+                        [[${selectAccount}]]
+                            계좌번호 잔액ㅋ넣기ㅋ
+                        <hr>
+                        <ul id="test">
+                            <li id="pageList" th:each="dto : ${page}">
+                                <em>[[${dto.date}]]이름</em>
+                                <em th:text="${dto.dw == 0}? 입금:출금"></em>
+                                <em>[[${dto.counterparty}]]</em>
+                                <em>[[${dto.money}]]</em>
+                                <strong>잔액?</strong>
+                            </li>
+                        </ul>
+                        <hr>
+                        <button class="btn1" type="button">더보기</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<th:block th:replace="fragments/headerAndFooter :: footerFragment"></th:block>
+</body>
+</html>
+
+</body>
+</html>
+
+
+

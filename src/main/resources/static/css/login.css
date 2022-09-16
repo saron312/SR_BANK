@@ -1,0 +1,27 @@
+
+/*로그인*/
+.loginsection {overflow:hidden; padding: 100px ; margin:auto;  max-width: 560px;}
+.loginsection article {float: left; width: 100%; margin: auto; }
+.loginsection article .login { padding-bottom: 100px;}
+.loginsection h3 {font-size: 30px; font-weight: 500; margin-bottom: 60px; text-align: center;}
+
+.login {padding: 17px; }
+.loginform{align-items: center; max-width: 530px;}
+
+.login label {display: block; margin-top:15px; margin-bottom:3px; font-size: 16px; font-weight: 500; color: #666; }
+.login span{color:#ff6289;}
+#loginErrorDiv{text-align: center; height:20px;}
+#loginError{font-size: 14px; color:#ff6289;}
+.login input{margin-bottom: 3px;  width: 100%; height: 40px; font-size: 18px; border-radius: 5px;
+    box-shadow:0 0 0 0; border:1px solid #dbdbdb; box-sizing: border-box;
+    padding-left: 10px;  }
+.login input:focus { outline: none!important; border-color:#999; box-shadow: 0 0 10px #999; background-color: #fff;}
+.login input::after {background-color: #fff;}
+.login input::placeholder{font-size:16px; color:#dbdbdb; }
+.login strong{ margin:0; font-size: 18px; font-weight: 500; color: #666; text-align: center;}
+.login em {display: block; font-size: 14px; text-align: center;}
+hr{margin-bottom: 20px; margin-top:15px; background-color:#dbdbdb; height: 1px; border:0;}
+button {float:left; padding:8px; background-color:#3b3939; color: #fff; border-radius: 5px; box-sizing: border-box;
+    font-size:16px; width: 32%;}
+button:hover{background-color: #211f1f;}
+.btn2{margin:0 2%;}

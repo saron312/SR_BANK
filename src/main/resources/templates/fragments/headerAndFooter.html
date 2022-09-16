@@ -1,0 +1,59 @@
+<header id="header" th:fragment="headerFragment">
+    <div class="container">
+        <div class="row">
+            <div class="header clearfix">
+                <h1>
+                    <a id="logoHome" th:href="@{/}">
+                        <em><img th:src="@{/img/logo.png}" alt="BANK"></em>
+                        <strong><img th:src="@{/img/sublogo.png}" alt="BANKSUB"></strong>
+                    </a>
+                </h1>
+                <nav id="mNav">
+                    <a id="mediaMenu" th:href="@{/login}"><h2 class="ir_so">로그인</h2></a>
+                    <a href="#" class="ham"><span></span></a>
+                </nav>
+                <nav class="nav">
+                    <ul class="clearfix">
+                        <li><a id="menuBar1" th:href="@{/login}">로그인</a></li>
+                        <li><a id="menuBar2" th:href="@{/join}">회원가입</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<footer id="footer" th:fragment="footerFragment">
+    <div id="footer_sns">
+        <div class="container">
+            <div class="footer_sns">
+                <div class="tel">
+                    <a href="#">ARS <em>010-9097-1941</em></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer_infor">
+        <div class="container">
+            <div class="row">
+                <div class="footer_infor">
+                    <h2><img th:src="@{/img/logo.png}" alt="mainlogo"></h2>
+                    <ul>
+                        <li><a href="#">이용상담</a></li>
+                        <li><a href="#">보안프로그램</a></li>
+                        <li><a href="#">사고신고</a></li>
+                        <li><a href="#">전자민원접수</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">신용정보활용체제</a></li>
+                        <li><a href="#">경영공시</a></li>
+                    </ul>
+                    <address>
+                        <p>서울 강남구 테헤란로 7길 7(역삼동 에스코빌딩 6층)<br><span class="bar2">대표자명 ㅇㅇㅇ</span> 개인정보보호 책임자 경영지원실 실장 ㅇㅇㅇ<br><span class="bar2">사업자등록번호 000-00-00000</span> 통신판매업신고번호 제 000호</p>
+                        <p>Copyright SH sssshhh Bank. All Rights Reserved.</p>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

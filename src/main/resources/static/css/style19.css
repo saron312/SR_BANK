@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/* 레이아웃 */
+html{height: 100%;}
+body{height: 100%;}
+#mNav {display: none; position: absolute; top: 23px; right: 16px;}
+#header {position: fixed; left: 0; top: 0; z-index: 9999; border-bottom: 1px solid #ccc; width: 100%; height: 50px; background: #fff;}
+#footer {background: #211f1f;}
+
+/* 가운데 영역 */
+.container {position: relative; width: 1280px; margin: 0 auto;/* background:rgba(0,0,0,0.1); */ }
+
+/* 로우 영역 */
+.row {padding: 0 16px;}
+                                                          
+/* 헤더 */
+.header h1 {float: left; position: relative;}
+.header h1 em {padding: 9px 9px 3px 0px; display: inline-block;}
+.header h1 em img {width: 40px; }
+.header h1 strong {display: block; position: absolute; left: 45px; top: 18px;}
+.header h1 strong img {width: 80px;}
+.header .nav {float: right; }
+.header .nav ul {border-left: 1px solid #c6c6c6;}
+.header .nav li {float: left; width: 85px; text-align: center; border-right: 1px solid #c6c6c6; }
+.header .nav li a {display: block; padding: 14px 10px; font-size: 15px; font-weight: 700; color: #444;}
+
+/* home */
+.help {overflow:hidden; padding: 200px; margin:auto;  max-width: 560px;}
+.help article {float: left; width: 100%; margin:auto; } 
+.help article > div {border: 1px solid #dbdbdb; height: auto;}
+.help h3 {font-size: 30px; font-weight: 500; margin-bottom: 40px; text-align: center;}
+
+
+.card {padding: 17px; /*display: flex; align-items: center; justify-content: center;*/ }
+.card ul li {position: relative; border: 1px solid #dbdbdb; padding: 17px;
+             margin-top:8px; margin-bottom: 8px; min-height: 20%; box-sizing: border-box;}
+.card ul li strong { padding:0 80px; font-size: 18px; font-weight: 500; color: #666; text-align: center;}
+.card ul li em {padding:0 25px; width: 50px; font-size: 16px; text-align: center; text-align: center; color:#666;}
+.card ul li:hover { box-shadow: 0 0 10px #999; }
+
+
+.index {padding: 17px;}
+.index .strong {display: block; font-size: 18px; font-weight: 500; color: #666; text-align: center;}
+.index .em {display: block; font-size: 14px; text-align: center; color:#666}
+.index:hover { box-shadow: 0 0 10px #999; }
+
+/* 푸터 */ 
+.footer_sns {position: absolute; right: 17px; top: 33px; z-index: 1;}
+.footer_sns .tel {text-align: right; padding-top: 5px;}
+.footer_sns .tel a {color: #8f8f8f; font-size: 21px;}
+.footer_sns .tel a em {color: #fff;}
+
+.footer_infor {padding: 50px 0; width: 80%;}
+.footer_infor h2 img {width: 40px;}
+.footer_infor ul {padding: 15px 0;}
+.footer_infor li {position: relative; display: inline; padding-right: 16px; white-space: nowrap;}
+.footer_infor li:after {content: ''; position: absolute; right: 5px; top: 5px; width: 1px; height: 11px; background: #8f8f8f;}
+.footer_infor li:last-child:after {width: 0; height: 0;}
+.footer_infor li a {color: #8f8f8f;}
+.footer_infor address p {color: #8f8f8f; padding-bottom: 15px;}
+
+
+/* 미디어 쿼리 */
+@media (max-width: 1290px){
+    .container {width: 100%;}
+    #header .row {padding-right: 0;}
+    .header .nav li:last-child {border-right: 0;}
+    
+    .slider .swiper-slide.ss3 {text-align: center;} 
+}
+
+@media (max-width: 1024px){
+    .header h1 em {padding: 9px 9px 8px 0px; }
+    .header h1 em img {width: 40px; }
+    .header h1 strong {left: 45px; top: 18px;}
+    .header h1 strong img {width: 80px;}
+    
+    .help article.help_box2 {margin-right: 0;}
+
+}
+
+@media (max-width: 960px){
+    #mNav {display: block;}
+    .header .nav {display: none;}
+    .header h1 {text-align: center; float: none;}
+    .header h1 em {padding-right: 0;}
+    .header h1 strong {left: 0px;}
+    .footer_sns {position: static; text-align: center; /*background: #352c2c;*/ padding-bottom: 15px;}
+    .footer_sns .tel {display: none;}
+    .footer_infor {width: 100%; text-align: center;}
+}
+
+@media (max-width: 768px){
+    /*body {background: #d9d7e0;}*/
+    
+    #help .row {padding: 0 24px;}
+    .help {padding-bottom: 24px;}
+    .help article.help_box2 {width: 100%; background: #fff;  margin-bottom: 20px;box-sizing: border-box;}
+    .help article.help_box2 h3 {font-size: 24px; font-weight: 700; height: 27px;  margin-bottom: 20px; padding-bottom: 10px;}
+
+}
+
+@media (max-width: 600px){
+    .header h1 strong {display: none}
+    .header h1 {text-align: left;}
+    #help .row {padding: 0 8px;}
+    .help {padding-bottom: 8px;}
+    .help article.help_box1 h3 {font-size: 18px; margin-bottom: 0px;}
+    .help article.help_box2 h3 {font-size: 18px; margin-bottom: 0px;}
+    .card {padding: 8px;}
+    .footer_infor {padding: 30px 0;}
+    .footer_infor address p br {display: none;}
+}
+
