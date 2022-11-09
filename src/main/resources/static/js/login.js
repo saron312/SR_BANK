@@ -1,7 +1,7 @@
 $(document).ready(function () {
     let resid = false;
     let respw = false;
-    $("#userid").focus(function (){
+    $("#userId").focus(function (){
         $("#loginError").hide();
     });
     $("#password").focus(function (){
@@ -9,13 +9,13 @@ $(document).ready(function () {
     });
 
     /////////////// 아이디 유효성 검사 (정규식, ajax 사용)////////////////
-    $("#userid").blur(function () {
+    $("#userId").blur(function () {
         let idError = $("#idError");
         ///ajax 조건식//
         $.ajax({
-            url: '/idcheck',
+            url: '/idCheck',
             type: 'get',
-            data: "userid=" + $("#userid").val(),
+            data: {userId : $("#userId").val()},
             dataType: 'text',
             success: function (check) {	// 통신 성공 시 "true" 혹은 "false" 반환
                 if (check == "true") { // 아이디가 이미 존재함
@@ -24,7 +24,7 @@ $(document).ready(function () {
                     resid = true;
                 } else {// "false" 일 경우 - 아이디가 존재하지 않을 경우
                     //console.log(check);	// 확인용
-                    let id = $("#userid").val();
+                    let id = $("#userId").val();
                     if (id === null || id === '') { //값이 없을 때
                         idError.show().text("아이디를 입력해주세요.");
                         return resid = false;
@@ -62,12 +62,11 @@ $(document).ready(function () {
     });
 
     //////////로그인 버튼 입력한 input의 값이 조건에 부합할 때만 submit됨///////////
-    $("#loginsubmit").submit(function () {
+    $("#loginSubmit").submit(function () {
         if(resid === true && respw === true){
-            alert($("#userid").val()+$("#password").val());
             return true;
         }else{
-            if ($("#userid").val() === null || $("#userid").val() === "") {
+            if ($("#userId").val() === null || $("#userId").val() === "") {
                 $("#idError").show().text("아이디를 입력해주세요");
             }
             if ($("#password").val() === null || $("#password").val() === "") {

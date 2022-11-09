@@ -1,0 +1,73 @@
+<!--회원가입 -->
+<section th:fragment="join">
+  <div class="container">
+    <div class="row">
+      <div class="loginsection clearfix">
+        <article class="help_box2">
+          <h3><em>회원가입</em></h3>
+          <div class="login">
+            <form th:action="@{/user/join}" method="post">
+              <div>
+                <label for="userId">아이디</label>
+                <input type="text" id="userId" name="userId" class="form-control" placeholder="아이디를 입력하세요.">
+                <span id="idError" class="error" th:text="${error}"/>
+              </div>
+              <div>
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password1" class="form-control"
+                       placeholder="비밀번호를 입력하세요.">
+                <span id="pwError" class="error"/>
+              </div>
+              <div>
+                <label for="password2">비밀번호 재확인</label>
+                <input type="password" id="password2" name="password" class="form-control"
+                       placeholder="비밀번호를 한 번 더 입력하세요.">
+                <span id="pwError2" class="error"/>
+              </div>
+              <div>
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="이름을 입력하세요.">
+                <span id="nameError" class="error"/>
+              </div>
+              <div>
+                <label for="phoneNumber">휴대폰번호</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="휴대폰번호를 입력하세요.">
+                <span id="phoneError" class="error"/>
+              </div>
+              <hr>
+              <div class="button">
+                <button class="joinBtn" id="joinBtn1" type="submit">회원가입</button>
+                <button class="joinBtn" th:onclick="|location.href='@{/}'|" type="button">취소
+                </button>
+              </div>
+            </form>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section th:fragment="joinSuccess">
+  <div class="container">
+    <div class="row">
+      <div class="loginsection clearfix">
+        <article class="help_box2">
+          <h3><em>회원가입</em></h3>
+          <div class="login">
+            <div>
+              <label>회원가입이 완료되었습니다.</label>
+            </div>
+            <hr>
+            <div class="button">
+              <button class="joinBtn"
+                      th:onclick="|location.href='@{/user/login}'|"type="button">로그인</button>
+              <button class="joinBtn"
+                      th:onclick="|location.href='@{/}'|" type="button">홈으로 가기</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

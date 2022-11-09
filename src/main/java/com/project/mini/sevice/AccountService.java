@@ -1,27 +1,21 @@
 package com.project.mini.sevice;
 
-import com.project.mini.entity.Account;
-import com.project.mini.repository.AccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.mini.dto.AccountDto;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class AccountService {
-    @Autowired
-    AccountRepository accountRepository;
+public interface AccountService {
 
-    public List<Account> list(String userid){
-        return accountRepository.findByUserid(userid);
-    }
+    Long createAccount(String userId);
 
-    public Page<Account> accountPage(int pageNum, String userid){
-        Pageable pageable = PageRequest.of(pageNum, 3);
-        return accountRepository.findByUserid(userid, pageable);
-    }
+    List<AccountDto> srBankList(String userId);
+
+    Page<AccountDto> userAccountList(String userId,int pageNum);
+
+    String findBankName(String counterparty);
+
 
 }

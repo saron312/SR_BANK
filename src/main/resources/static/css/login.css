@@ -25,3 +25,29 @@ button {float:left; padding:8px; background-color:#3b3939; color: #fff; border-r
     font-size:16px; width: 32%;}
 button:hover{background-color: #211f1f;}
 .btn2{margin:0 2%;}
+
+.homeBtn {
+    float: none;
+    padding: 8px;
+    background-color: #3b3939;
+    color: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 100%;
+}
+
+.joinBtn {
+    padding: 8px;
+    background-color: #3b3939;
+    color: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 49%;
+}
+.joinBtn:first-child{margin-right: 2%;}
+#sendBtn {float:right; }
+
+.pageList:hover{box-shadow: 0 0 0 0 ; }
+

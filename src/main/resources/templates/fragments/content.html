@@ -1,0 +1,39 @@
+<section th:fragment="index">
+    <div class="container">
+      <div class="row">
+        <div class="help clearfix">
+          <h3><em>계좌목록</em></h3>
+          <a th:href="@{/user/login}" sec:authorize="isAnonymous()">
+            <article class="help_box2">
+              <div class="index">
+                <div>
+                  <strong class="strong">정보가 없음</strong>
+                  <em class="em">로그인을 해주세용</em>
+                </div>
+              </div>
+            </article>
+          </a>
+          <div class="card" sec:authorize="isAuthenticated()">
+            <form id="accountForm">
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+              <input type="hidden" id="accountNumber" name="accountNumber"/>
+              <input type="hidden" id="bankName" name="bankName"/>
+            <ul id="test">
+
+              <!--              <strong th:text="${#lists.isEmpty(list)}"/>-->
+              <li id="pageList" th:each="dto : ${page}" >
+                  <a href="#" class="sendAccount">
+                    <strong th:text="${dto.bankName}+은행"/>
+                    <em th:text="${dto.accountNumber}"/>
+                  </a>
+              </li>
+            </ul>
+            </form>
+            <hr>
+            <button class="homeBtn" type="button">더보기</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_head(title,links,scripts)">
+  <!--공통-->
+  <title>SRBANK</title>
+  <link th:href="@{/css/reset19.css}" rel="stylesheet">
+  <link th:href="@{/css/style19.css}" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+          crossorigin="anonymous">
+  </script>
+  <link rel="shortcut icon" sizes="16x16" th:href="@{/img/favicon.ico}">
+  <link th:href="'https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean'" rel="stylesheet">
+  <!-- 추가 -->
+  <th:block th:replace="${links}" />
+  <th:block th:replace="${scripts}" />
+
+<!--  <th:block th:fragment="css"></th:block>-->
+<!--  <th:block th:fragment="script"></th:block>-->
+</head>
+</html>

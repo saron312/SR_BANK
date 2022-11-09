@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head th:replace="fragments/base :: common_head(~{::title},~{::link},~{::script})">
-    <title>SRBANK</title>
-    <link rel="stylesheet" th:href="@{/css/login.css}" >
-    <script th:src="@{/js/join.js}"></script>
+  <title>SRBANK</title>
+  <link th:href="@{/css/login.css}" rel="stylesheet" >
+  <script></script>
 </head>
-
 <body>
-<th:block th:replace="fragments/join :: join"></th:block>
+<th:block th:replace="fragments/join :: joinSuccess"></th:block>
 <th:block th:replace="fragments/headerAndFooter :: footerFragment"></th:block>
 </form>
 </body>

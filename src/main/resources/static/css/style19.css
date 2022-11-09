@@ -38,6 +38,12 @@ body{height: 100%;}
 .card ul li em {padding:0 25px; width: 50px; font-size: 16px; text-align: center; text-align: center; color:#666;}
 .card ul li:hover { box-shadow: 0 0 10px #999; }
 
+.page {padding: 17px;}
+.page ul li {position: relative; border: 1px solid #dbdbdb; padding: 17px;
+    margin-top:8px; margin-bottom: 8px; min-height: 20%; box-sizing: border-box;}
+.page ul li strong { padding:0 80px; font-size: 18px; font-weight: 500; color: #666; text-align: center;}
+.page ul li em {padding:0 25px; width: 50px; font-size: 16px; text-align: center; text-align: center; color:#666;}
+
 
 .index {padding: 17px;}
 .index .strong {display: block; font-size: 18px; font-weight: 500; color: #666; text-align: center;}
