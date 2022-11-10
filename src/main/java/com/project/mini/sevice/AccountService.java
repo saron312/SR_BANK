@@ -17,5 +17,5 @@ public interface AccountService {
 
     String findBankName(String counterparty);
 
-
+    AccountDto findMIdAId(String accountNumber);
 }

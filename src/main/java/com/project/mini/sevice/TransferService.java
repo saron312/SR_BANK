@@ -5,5 +5,5 @@ import org.springframework.data.domain.Page;
 public interface TransferService {
     Page<TransferDto> transferPage(String accountNumber, int pageNum);
     Page<TransferDto> remittance(String accountNumber);
-    void sendMoney(String sendAccountNumber, String counterparty, Long money);
+    void sendMoney(String accountNumber, String counterparty, Long money);
 }

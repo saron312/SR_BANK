@@ -19,6 +19,7 @@ import java.util.Date;
 public class Transfer {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long tId;
 
     @ManyToOne (fetch = FetchType.LAZY)

@@ -51,3 +51,12 @@ button:hover{background-color: #211f1f;}
 
 .pageList:hover{box-shadow: 0 0 0 0 ; }
 
+#createBtn {float: none; width: 100%;}
+
+.result > p { font-size:1.3em; margin: 2% 0; border: 1px solid #dbdbdb;}
+.title > p {background-color: #dbdbdb; font-size:1.3em; margin: 2% 0; border: 1px solid #dbdbdb;}
+.info {border: 1px solid #dbdbdb;}
+
+#deniedHomeBtn{float:none; width:70%;}
+
+

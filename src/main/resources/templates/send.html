@@ -3,111 +3,14 @@
 <head th:replace="fragments/base :: common_head(~{::title},~{::link},~{::script})">
     <title>SRBANK</title>
     <link th:href="@{/css/send.css}" rel="stylesheet">
-    <script
-            src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous">
-    </script>
     <script th:inline="javascript" sec:authorize="isAuthenticated()">
         let total = [[${total}]]
     </script>
     <script th:src="@{/js/send.js}"></script>
-
 </head>
 <body>
 <th:block th:replace="fragments/headerAndFooter :: headerFragment"></th:block>
-
-<section id="help">
-    <div class="container">
-        <div class="row">
-            <div class="help clearfix">
-                <article class="help_box2">
-                    <h3><em>이체</em></h3>
-                    <div class="send">
-                        <form action="/sendResult" method="post">
-                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                            <input type="hidden" name="sendAccountNumber" th:value="${selectAccountNumber}">
-                            <div class="selectAccount">
-                                <div style="text-align: center;">
-                                    <em style="font-size: 1.5em;" th:text="'선택한 계좌 : '+${selectAccountNumber}"/>
-                                    <em style="text-align: center; font-size: 1.5em;"
-                                        th:text="'   [ '+${selectBankName}+' ] '"/>
-                                </div>
-                                <div style="text-align: center;">
-                                    <em id="totalMoney" style="font-size: 1.2em;" th:text="${total==''}? '0':'송금 가능 금액 : '+${total}"/>
-                                </div>
-                                <hr>
-                                <p style="text-align: center; font-size:1.2em;">최근 송금한 계좌 목록</p>
-                            </div>
-                            <ul>
-                                <li th:each="dto : ${remittance}">
-                                    <div style="width: 58%;">
-                                        <strong class="selectSendAccountNum">[[${dto.counterparty}]]</strong>
-                                    </div>
-                                    <div style="width: 20%;">
-                                        <em class="selectSendBankName">[[${dto.bankName}]]</em>
-                                    </div>
-                                    <div style="width: 20%;">
-                                        <em class="selectSendName">[[${dto.name}]]</em>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li id="selectLi" style="text-align: center;">
-                                    <strong>직접 입력하기</strong>
-                                </li>
-                            </ul>
-                            <hr>
-                            <div class="send" style="display:none;">
-
-                                <div>
-                                    <strong>받는분</strong>
-                                </div>
-                                <div style="padding-bottom: 2%;">
-                                    <input style="width:50%;" type="text" id="accountNumber" name="counterparty" placeholder="계좌번호">
-                                    <select style="width:24%;" id="bankName">
-                                        <option selected disabled>은행</option>
-                                        <option value="SR">SR은행</option>
-                                        <option value="DE">DE은행</option>
-                                        <option value="HJ">HJ은행</option>
-                                        <option value="YH">YH은행</option>
-                                        <option value="MS">MS은행</option>
-                                    </select>
-                                    <input style="width:24%;" id="name" type="text" placeholder="받는 사람">
-                                </div>
-                                <strong>금액</strong>
-                                <div class="moneybtn">
-                                    <button type="button" id="moneybtn1">1만원</button>
-                                    <button type="button" id="moneybtn2">5만원</button>
-                                    <button type="button" id="moneybtn3">10만원</button>
-                                    <button type="button" id="moneybtn4">50만원</button>
-                                    <button type="button" id="moneybtn5">100만원</button>
-                                </div>
-                                <div>
-                                    <input type="text" id="money" name="sendMoney" placeholder="금액 입력">
-                                    <button type="button" class="formbtn" id="ok">확인</button>
-                                    <button type="button" class="formbtn" id="remove">지우기</button>
-                                    <hr>
-                                    <div class="result">
-                                        <strong id="sendName"></strong><span>님께</span>
-                                        <strong id="resultmoney"></strong><span>원을 보내시겠습니까?</span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <button id="sendBtn" class="btn1" type="button">
-                                <span style="color:white;" id="sendSpan">펼치기</span>
-                            </button>
-                        </form>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
-</section>
-
+<th:block th:replace="fragments/content :: send"></th:block>
 <th:block th:replace="fragments/headerAndFooter :: footerFragment"></th:block>
-
 </body>
 </html>

@@ -3,90 +3,18 @@
 <head th:replace="fragments/base :: common_head(~{::title},~{::link},~{::script})">
     <title>SRBANK</title>
     <link rel="stylesheet" th:href="@{/css/login.css}">
-
     <script th:inline="javascript">
         let firstPageNum = [[${dwList.getNumber()}]];
         let lastPageNum = [[${dwList.getTotalPages()}]];
         let accountNumber = [[${selectAccountNumber}]]
     </script>
-
-    <script th:src="@{/js/transfer.js}"></script>
-
+    <script th:src="@{/js/account.js}"></script>
 </head>
 <body>
-
 <th:block th:replace="fragments/headerAndFooter :: headerFragment"></th:block>
-
-<section id="help">
-    <div class="container">
-        <div class="row">
-            <div class="help clearfix">
-                <article class="help_box2">
-                    <h3><em>거래내역조회</em></h3>
-                    <div class="page" sec:authorize="isAuthenticated()">
-                        <div style="overflow: hidden;">
-                            <div style="font-size:17px; display: inline-block ;width:60%;">
-                                <em class="bankName" style="padding:0 20px;" th:text="${selectBankName}"/>
-                                <em class="accountNumber" style="text-align: right; font-size:20px" th:text="${selectAccountNumber}"/>
-                                <p style="color:#ff6289; padding-left:20px">
-                                    <strong style="font-size:1.1em;"
-                                            th:text="${dwList.content.size()==0}? '거래내역이 존재하지 않습니다.':'잔액 '+${dwList.content.get(0).total}"/>
-                                </p>
-                            </div>
-                            <form style="display:inline;" th:action="@{/send}" method="post">
-                                <input type="hidden" name="accountNumber" th:value="${selectAccountNumber}">
-                                <input type="hidden" name="bankName" th:value="${selectBankName}">
-                                <input type="hidden" name="total"
-                                       th:value="${dwList.content.size()==0}? '':${dwList.content.get(0).total}">
-                                <button id="sendBtn">송금하기</button>
-                            </form>
-                        </div>
-                        <hr/>
-                        <ul id="test">
-                            <li class="pageList" th:each="dto : ${dwList}">
-                                <div>
-                                    <p th:text="${#calendars.format(dto.dwDate,'yyyy-MM-dd HH:mm:ss')}"/>
-                                    <div>
-                                        <em style="text-align:left; display: block; width:70px;" th:text="${dto.bankName}+은행"/>
-                                        <div style="display: inline-block; width: 40%;">
-                                            <em th:text="${dto.counterparty}"/>
-                                        </div>
-                                        <em style="padding:0;" th:text="${dto.name}"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div style="display: inline-block; width:79%;">
-                                        <div style="text-align: right; font-size:1.4em">
-                                            <em style="padding:0;" th:text="${dto.dw}"/>
-                                        </div>
-                                        <div style="text-align: right">
-                                            <em style="padding:0;">잔액</em>
-                                        </div>
-                                    </div>
-                                    <div style="display:inline-block; text-align:right; width:20%;">
-                                        <div>
-                                        <em id="money" style="font-size: 1.4em; padding:0 25px 0 0;" th:class="${dto.dw}"
-                                            th:text="${dto.money}"/></div>
-                                        <div><em style="padding:0 25px 0 0;" th:text="${dto.total}"/></div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <hr>
-                        <button class="homeBtn" type="button">더보기</button>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
-</section>
-
+<th:block th:replace="fragments/content :: account"></th:block>
 <th:block th:replace="fragments/headerAndFooter :: footerFragment"></th:block>
 </body>
 </html>
-
-</body>
-</html>
-
 
 

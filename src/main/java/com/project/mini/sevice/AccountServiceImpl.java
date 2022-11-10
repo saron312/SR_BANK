@@ -32,10 +32,10 @@ public class AccountServiceImpl implements AccountService {
         int random = (int)(Math.random()*999)+100;
 
         /* 중복값 입력안되게 while문 돌리기*/
-        String accountNumber = "441"+random+"01303"+random;
+        String accountNumber = "441"+random+"-01-303"+random;
         while (accountRepository.existsByAccountNumber(accountNumber)){
             random = (int)(Math.random()*999)+100;
-            accountNumber = "441"+random+"01303"+random;
+            accountNumber = "441"+random+"-01-303"+random;
         }
         AccountDto accountDto = AccountDto.builder()
                 .accountNumber(accountNumber)
@@ -71,6 +71,14 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public String findBankName(String counterparty) {
         return accountRepository.findBankName(counterparty);
+    }
+
+    @Override
+    public AccountDto findMIdAId(String accountNumber) {
+        Account account = accountRepository.findMIdAId(accountNumber).get();
+        return AccountDto.builder()
+                .aId(account.getAId())
+                .mId(account.getMId()).build();
     }
 
 

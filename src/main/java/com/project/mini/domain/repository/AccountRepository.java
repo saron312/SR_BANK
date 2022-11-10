@@ -30,4 +30,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     @Query(value = "select a.bankName from Account a where a.accountNumber = :accountNumber")
     String findBankName (String accountNumber);
+
+    @Query("select a.mId,a.aId from Account a where a.accountNumber=:accountNumber")
+    Optional<Account> findMIdAId(String accountNumber);
 }

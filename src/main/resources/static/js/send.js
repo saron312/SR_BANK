@@ -142,16 +142,12 @@ $(document).ready(function () {
             return;
         }
 
-        alert("aa");
-
         if (SRDERegExp.test($("#accountNumber").val()) ||
             YHRegExp.test($("#accountNumber").val()) ||
             MSRegExp.test($("#accountNumber").val()) ||
             HJRegExp.test($("#accountNumber").val())) {
-            alert("dddd");
             accountNumberResult = true;
         }
-        alert("bb");
 
         if (!nameRegExp.test($("#name").val())) { //정규식에 맞지 않을 떄
             alert("이름을 정확하게 입력해주세요.");
@@ -159,8 +155,6 @@ $(document).ready(function () {
         } else {
             nameResult = true;
         }
-        alert("cc");
-
 
         if (!(numRegExp.test($("#money").val()))) { //정규식에 맞지 않을 떄
             alert("숫자만 입력하세요");

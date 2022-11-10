@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/base :: common_head(~{::title},~{::link},~{::script})">
+    <title>SRBANK</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+    <script></script>
 </head>
 <body>
-접근불가 페이지
+<th:block th:replace="fragments/content :: denied"></th:block>
 </body>
 </html>

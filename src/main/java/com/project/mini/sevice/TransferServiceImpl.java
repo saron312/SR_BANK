@@ -45,9 +45,8 @@ public class TransferServiceImpl implements TransferService {
     }
 
     @Override
-    public void sendMoney(String sendAccountNumber, String counterparty, Long money) {
-        transferRepository.saveTransfer(sendAccountNumber, counterparty, money);
-        System.out.println("완료!!!");
+    public void sendMoney(String accountNumber, String counterparty, Long money) {
+        transferRepository.saveTransfer(accountNumber,counterparty,money);
     }
 
 }

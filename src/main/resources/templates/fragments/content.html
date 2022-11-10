@@ -1,39 +1,407 @@
+<!--index start-->
 <section th:fragment="index">
     <div class="container">
-      <div class="row">
-        <div class="help clearfix">
-          <h3><em>계좌목록</em></h3>
-          <a th:href="@{/user/login}" sec:authorize="isAnonymous()">
-            <article class="help_box2">
-              <div class="index">
-                <div>
-                  <strong class="strong">정보가 없음</strong>
-                  <em class="em">로그인을 해주세용</em>
-                </div>
-              </div>
-            </article>
-          </a>
-          <div class="card" sec:authorize="isAuthenticated()">
-            <form id="accountForm">
-              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-              <input type="hidden" id="accountNumber" name="accountNumber"/>
-              <input type="hidden" id="bankName" name="bankName"/>
-            <ul id="test">
+        <div class="row">
+            <div class="help clearfix">
+                <h3><em>계좌목록</em></h3>
+                <a th:href="@{/user/login}" sec:authorize="isAnonymous()">
+                    <article class="help_box2">
+                        <div class="index">
+                            <div>
+                                <strong class="strong">정보가 없음</strong>
+                                <em class="em">로그인을 해주세용</em>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+                <div class="card" sec:authorize="isAuthenticated()">
+                    <form id="accountForm">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                        <input type="hidden" id="accountNumber" name="accountNumber"/>
+                        <input type="hidden" id="bankName" name="bankName"/>
+                        <ul id="test">
 
-              <!--              <strong th:text="${#lists.isEmpty(list)}"/>-->
-              <li id="pageList" th:each="dto : ${page}" >
-                  <a href="#" class="sendAccount">
-                    <strong th:text="${dto.bankName}+은행"/>
-                    <em th:text="${dto.accountNumber}"/>
-                  </a>
-              </li>
-            </ul>
-            </form>
-            <hr>
-            <button class="homeBtn" type="button">더보기</button>
-          </div>
+                            <!--              <strong th:text="${#lists.isEmpty(list)}"/>-->
+                            <li id="pageList" th:each="dto : ${page}">
+                                <a href="#" class="sendAccount">
+                                    <strong th:text="${dto.bankName}+은행"/>
+                                    <em th:text="${dto.accountNumber}"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </form>
+                    <hr>
+                    <button class="homeBtn" type="button">더보기</button>
+                </div>
+            </div>
         </div>
-        </div>
-      </div>
     </div>
-  </section>
+    </div>
+</section>
+<!--index end-->
+
+<!--login start-->
+<section th:fragment="login">
+    <div class="container">
+        <div class="row">
+            <div class="loginsection clearfix">
+                <article class="help_box2">
+                    <h3><em>로그인</em></h3>
+                    <div id="loginErrorDiv" th:if="${param.error}">
+                        <span id="loginError">비밀번호를 잘못 입력했습니다. 다시 입력해주세요.</span>
+                    </div>
+                    <div class="login">
+                        <form action="/user/login" id="loginSubmit" method="post">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                            <div>
+                                <label for="userId">로그인 ID</label>
+                                <input type="text" id="userId" name="userId" class="form-control"
+                                       placeholder="아이디를 입력하세요.">
+                                <span id="idError" class="error"/>
+                            </div>
+                            <div>
+                                <label for="password">비밀번호</label>
+                                <input type="password" id="password" name="password" class="form-control"
+                                       placeholder="비밀번호를 입력하세요.">
+                                <span id="pwError" class="error"/>
+                            </div>
+                            <hr>
+                            <div class="button">
+                                <button class="btn1" onclick="location.href='/user/join'" type="button">회원가입</button>
+                                <button class="btn2" type="submit">로그인</button>
+                                <button class="btn3" onclick="location.href='/'" type="button">취소</button>
+                            </div>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--login end-->
+
+<!--loginSuccess start-->
+<section th:fragment="loginSuccess">
+    <div class="container">
+        <div class="row">
+            <div class="loginsection clearfix">
+                <article class="help_box2">
+                    <h3><em>로그인</em></h3>
+                    <div class="login">
+                        <div>
+                            <label for="userId"><strong name="userId" sec:authentication="name"></strong>님 로그인이 완료되었습니다.</label>
+                        </div>
+                        <hr>
+                        <div class="button">
+                            <button class="homeBtn"
+                                    th:onclick="|location.href='@{/}'|" type="button">홈으로가기
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--loginSuccess end-->
+
+<!--join start -->
+<section th:fragment="join">
+    <div class="container">
+        <div class="row">
+            <div class="loginsection clearfix">
+                <article class="help_box2">
+                    <h3><em>회원가입</em></h3>
+                    <div class="login">
+                        <form th:action="@{/user/join}" method="post">
+                            <div>
+                                <label for="userId">아이디</label>
+                                <input type="text" id="userId" name="userId" class="form-control" placeholder="아이디를 입력하세요.">
+                                <span id="idError" class="error" th:text="${error}"/>
+                            </div>
+                            <div>
+                                <label for="password">비밀번호</label>
+                                <input type="password" id="password" name="password1" class="form-control"
+                                       placeholder="비밀번호를 입력하세요.">
+                                <span id="pwError" class="error"/>
+                            </div>
+                            <div>
+                                <label for="password2">비밀번호 재확인</label>
+                                <input type="password" id="password2" name="password" class="form-control"
+                                       placeholder="비밀번호를 한 번 더 입력하세요.">
+                                <span id="pwError2" class="error"/>
+                            </div>
+                            <div>
+                                <label for="name">이름</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="이름을 입력하세요.">
+                                <span id="nameError" class="error"/>
+                            </div>
+                            <div>
+                                <label for="phoneNumber">휴대폰번호</label>
+                                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="휴대폰번호를 입력하세요.">
+                                <span id="phoneError" class="error"/>
+                            </div>
+                            <hr>
+                            <div class="button">
+                                <button class="joinBtn" id="joinBtn1" type="submit">회원가입</button>
+                                <button class="joinBtn" th:onclick="|location.href='@{/}'|" type="button">취소
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--join end-->
+
+<!--joinSuccess start-->
+<section th:fragment="joinSuccess">
+    <div class="container">
+        <div class="row">
+            <div class="loginsection clearfix">
+                <article class="help_box2">
+                    <h3><em>회원가입</em></h3>
+                    <div class="login">
+                        <div>
+                            <label>회원가입이 완료되었습니다.</label>
+                        </div>
+                        <hr>
+                        <div class="button">
+                            <button class="joinBtn"
+                                    th:onclick="|location.href='@{/user/login}'|"type="button">로그인</button>
+                            <button class="joinBtn"
+                                    th:onclick="|location.href='@{/}'|" type="button">홈으로 가기</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--joinSuccess end-->
+
+<!--account start-->
+<section id="help" th:fragment="account">
+    <div class="container">
+        <div class="row">
+            <div class="help clearfix">
+                <article class="help_box2">
+                    <h3><em>거래내역조회</em></h3>
+                    <div class="page">
+                        <div style="overflow: hidden;">
+                            <div style="font-size:17px; display: inline-block ;width:60%;">
+                                <em class="bankName" style="padding:0 20px;" th:text="${selectBankName}"/>
+                                <em class="accountNumber" style="text-align: right; font-size:20px"
+                                    th:text="${selectAccountNumber}"/>
+                                <p style="color:#ff6289; padding-left:20px">
+                                    <strong style="font-size:1.1em;"
+                                            th:text="${dwList.content.size()==0}? '거래내역이 존재하지 않습니다.':'잔액 '+${dwList.content.get(0).total}"/>
+                                </p>
+                            </div>
+                            <form style="display:inline;" th:action="@{/send}" method="post">
+                                <input type="hidden" name="accountNumber" th:value="${selectAccountNumber}">
+                                <input type="hidden" name="bankName" th:value="${selectBankName}">
+                                <input type="hidden" name="total"
+                                       th:value="${dwList.content.size()==0}? '':${dwList.content.get(0).total}">
+                                <button id="sendBtn">송금하기</button>
+                            </form>
+                        </div>
+                        <hr/>
+                        <ul id="test">
+                            <li class="pageList" th:each="dto : ${dwList}">
+                                <div>
+                                    <p th:text="${#calendars.format(dto.dwDate,'yyyy-MM-dd HH:mm:ss')}"/>
+                                    <div>
+                                        <em style="text-align:left; display: block; width:70px;"
+                                            th:text="${dto.bankName}+은행"/>
+                                        <div style="display: inline-block; width: 40%;">
+                                            <em th:text="${dto.counterparty}"/>
+                                        </div>
+                                        <em style="padding:0;" th:text="${dto.name}"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="display: inline-block; width:79%;">
+                                        <div style="text-align: right; font-size:1.4em">
+                                            <em style="padding:0;" th:text="${dto.dw}"/>
+                                        </div>
+                                        <div style="text-align: right">
+                                            <em style="padding:0;">잔액</em>
+                                        </div>
+                                    </div>
+                                    <div style="display:inline-block; text-align:right; width:20%;">
+                                        <div>
+                                            <em id="money" style="font-size: 1.4em; padding:0 25px 0 0;"
+                                                th:class="${dto.dw}"
+                                                th:text="${dto.money}"/></div>
+                                        <div><em style="padding:0 25px 0 0;" th:text="${dto.total}"/></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <hr>
+                        <button class="homeBtn" type="button">더보기</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--account end-->
+
+<!--send start-->
+<section id="help" th:fragment="send">
+    <div class="container">
+        <div class="row">
+            <div class="help clearfix">
+                <article class="help_box2">
+                    <h3><em>이체</em></h3>
+                    <div class="send">
+                        <form action="/sendResult" method="post">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                            <input type="hidden" name="sendAccountNumber" th:value="${selectAccountNumber}">
+                            <div class="selectAccount">
+                                <div style="text-align: center;">
+                                    <em style="font-size: 1.5em;" th:text="'선택한 계좌 : '+${selectAccountNumber}"/>
+                                    <em style="text-align: center; font-size: 1.5em;"
+                                        th:text="'   [ '+${selectBankName}+' ] '"/>
+                                </div>
+                                <div style="text-align: center;">
+                                    <em id="totalMoney" style="font-size: 1.2em;"
+                                        th:text="${total==''}? '0':'송금 가능 금액 : '+${total}"/>
+                                </div>
+                                <hr>
+                                <p style="text-align: center; font-size:1.2em;">최근 송금한 계좌 목록</p>
+                            </div>
+                            <ul>
+                                <li th:each="dto : ${remittance}">
+                                    <div style="width: 58%;">
+                                        <strong class="selectSendAccountNum">[[${dto.counterparty}]]</strong>
+                                    </div>
+                                    <div style="width: 20%;">
+                                        <em class="selectSendBankName">[[${dto.bankName}]]</em>
+                                    </div>
+                                    <div style="width: 20%;">
+                                        <em class="selectSendName">[[${dto.name}]]</em>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li id="selectLi" style="text-align: center;">
+                                    <strong>직접 입력하기</strong>
+                                </li>
+                            </ul>
+                            <hr>
+                            <div class="send" style="display:none;">
+
+                                <div>
+                                    <strong>받는분</strong>
+                                </div>
+                                <div style="padding-bottom: 2%;">
+                                    <input style="width:50%;" type="text" id="accountNumber" name="counterparty"
+                                           placeholder="계좌번호">
+                                    <select style="width:24%;" id="bankName">
+                                        <option selected disabled>은행</option>
+                                        <option value="SR">SR은행</option>
+                                        <option value="DE">DE은행</option>
+                                        <option value="HJ">HJ은행</option>
+                                        <option value="YH">YH은행</option>
+                                        <option value="MS">MS은행</option>
+                                    </select>
+                                    <input style="width:24%;" id="name" type="text" placeholder="받는 사람">
+                                </div>
+                                <strong>금액</strong>
+                                <div class="moneybtn">
+                                    <button type="button" id="moneybtn1">1만원</button>
+                                    <button type="button" id="moneybtn2">5만원</button>
+                                    <button type="button" id="moneybtn3">10만원</button>
+                                    <button type="button" id="moneybtn4">50만원</button>
+                                    <button type="button" id="moneybtn5">100만원</button>
+                                </div>
+                                <div>
+                                    <input type="text" id="money" name="sendMoney" placeholder="금액 입력">
+                                    <button type="button" class="formbtn" id="ok">확인</button>
+                                    <button type="button" class="formbtn" id="remove">지우기</button>
+                                    <hr>
+                                    <div class="result">
+                                        <strong id="sendName"></strong><span>님께</span>
+                                        <strong id="resultmoney"></strong><span>원을 보내시겠습니까?</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <button id="sendBtn" class="btn1" type="button">
+                                <span style="color:white;" id="sendSpan">펼치기</span>
+                            </button>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--send end-->
+
+<!--myinfo start-->
+<section th:fragment="myinfo">
+    <div class="container">
+        <div class="row">
+            <div class="help clearfix">
+                <article class="help_box2">
+                    <h3><em>내 정보</em></h3>
+                    <div class="myinfo">
+                        <div class="info" style=" text-align: center;">
+                            <div class="title" style="display: inline-block; width: 48%">
+                                <p th:text="아이디 "/>
+                                <p th:text="휴대전화"/>
+                                <p th:text="휴대전화"/>
+                                <p th:text="가입날짜"/>
+                            </div>
+                            <div class="result" style="display: inline-block; width: 50%">
+                                <p Id="userId" th:text="${#authentication.name}"/>
+                                <p id="phoneNum" th:text="${member.phoneNumber}"/>
+                                <p th:text="${member.name}"/>
+                                <p th:text="${#calendars.format(member.timestamp,'yyyy년 MM월 dd일')}"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <p style="text-align: center; font-size: 1.3em; margin-bottom: 10px">[내가 가지고 있는 SR은행 계좌번호]</p>
+                        <ul style="text-align: center" id="test">
+                            <li th:each="dto:${srList}">
+                                <strong th:text="${dto.accountNumber}"></strong>
+                            </li>
+                        </ul>
+                        <hr>
+                        <button id="createBtn" type="button">계좌 만들기</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--myinfo end-->
+
+<!--denied start-->
+<section th:fragment="denied">
+    <div class="container">
+        <div class="row">
+            <div class="help clearfix">
+                <article class="help_box2">
+                    <div style="width: 40%; margin:auto; border:0;">
+                        <img src="/img/warning.png">
+                    </div>
+                    <h3><em>접근이 불가한 페이지입니다.</em></h3>
+                    <div style="margin:auto; text-align: center; border:0px;">
+                        <button id="deniedHomeBtn" onclick="location.href='/'">홈으로 가기</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--denied end-->
+
+
