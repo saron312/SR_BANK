@@ -41,7 +41,7 @@ public class AccountServiceImpl implements AccountService {
                 .accountNumber(accountNumber)
                 .bankName("SR")
                 .mId(memberService.loadMId(userId))
-                .build();
+                .build();;
         return accountRepository.save(accountDto.toEntity()).getAId();
     }
 
