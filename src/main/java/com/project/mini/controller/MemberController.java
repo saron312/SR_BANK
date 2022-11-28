@@ -36,7 +36,7 @@ public class MemberController {
 
     // 회원가입 처리
     @PostMapping("/join")
-    public String execJoin( MemberDto memberDto) {
+    public String execJoin(MemberDto memberDto) {
         memberService.joinUser(memberDto);
         return "joinSuccess";
     }
@@ -59,7 +59,6 @@ public class MemberController {
     // 로그아웃 결과 페이지
     @GetMapping("/logout/result")
     public String logout() {
-
         return "redirect:/";
     }
 

@@ -116,7 +116,8 @@
                         <form th:action="@{/user/join}" method="post">
                             <div>
                                 <label for="userId">아이디</label>
-                                <input type="text" id="userId" name="userId" class="form-control" placeholder="아이디를 입력하세요.">
+                                <input type="text" id="userId" name="userId" class="form-control"
+                                       placeholder="아이디를 입력하세요.">
                                 <span id="idError" class="error" th:text="${error}"/>
                             </div>
                             <div>
@@ -138,7 +139,8 @@
                             </div>
                             <div>
                                 <label for="phoneNumber">휴대폰번호</label>
-                                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="휴대폰번호를 입력하세요.">
+                                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control"
+                                       placeholder="휴대폰번호를 입력하세요.">
                                 <span id="phoneError" class="error"/>
                             </div>
                             <hr>
@@ -170,9 +172,11 @@
                         <hr>
                         <div class="button">
                             <button class="joinBtn"
-                                    th:onclick="|location.href='@{/user/login}'|"type="button">로그인</button>
+                                    th:onclick="|location.href='@{/user/login}'|" type="button">로그인
+                            </button>
                             <button class="joinBtn"
-                                    th:onclick="|location.href='@{/}'|" type="button">홈으로 가기</button>
+                                    th:onclick="|location.href='@{/}'|" type="button">홈으로 가기
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -403,5 +407,47 @@
     </div>
 </section>
 <!--denied end-->
+
+<!--admin start-->
+<section th:fragment="admin">
+    <div class="container">
+        <div class="row">
+            <div class="help clearfix">
+                <article class="help_box2">
+                    <h3><em>관리자 페이지</em></h3>
+                    <div class="admin">
+                        <h4>회원목록</h4>
+                        <div class="tbl-header">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th><strong>아이디</strong></th>
+                                    <th><strong>이름</strong></th>
+                                    <th><strong>휴대전화</strong></th>
+                                    <th><strong>가입일</strong></th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="tbl-content">
+                            <table>
+                                <tbody>
+                                <tr th:each="dto : ${member}">
+                                    <td><strong th:text="${dto.userId}"/></td>
+                                    <td><em th:text="${dto.name}"/></td>
+                                    <td><em th:text="${dto.phoneNumber}"/></td>
+                                    <td><em th:text="${#calendars.format(dto.timestamp,'yyyy-MM-dd HH:mm')}"/></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button id="deniedHomeBtn" onclick="location.href='/'">홈으로 가기</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!--admin end-->
 
 

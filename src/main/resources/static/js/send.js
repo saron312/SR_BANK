@@ -54,6 +54,25 @@ $(document).ready(function () {
                 alert("은행계좌를 정확하게 입력해주세요. 양식:XXX-XXX-XXXXXX (-)필수입력");
             }
         }
+
+        $.ajax({
+            url: '/findName',
+            type: 'get',
+            data: {accountNumber : $("#accountNumber").val()},
+            dataType: 'text',
+            success: function (data) {
+                if (data === '0') {
+                    alert("존재하지 않는 계좌입니다.");
+                } else {
+                    $("#name").val(data);
+                    $("#sendName").text(data);
+                }
+            },
+            error: function () {
+                console.log("통신 오류");
+            }
+        });
+
     });
 
     $("#moneybtn1").click(function () {
