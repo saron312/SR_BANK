@@ -22,7 +22,7 @@ public interface TransferRepository extends JpaRepository<Transfer, Long> {
     , countQuery = "select count(t) FROM Transfer t WHERE t.aId.accountNumber = :accountNumber")
     Page<Transfer> findDwList(String accountNumber, Pageable pageable);
 
-    @Query("select t from Transfer t where t.dw='출금' and t.aId.accountNumber=:accountNumber order by t.dwDate desc ")
+    @Query(value = "select t from Transfer t where t.dw='출금' and t.aId.accountNumber=:accountNumber order by t.dwDate desc")
     Page<Transfer> remittance(String accountNumber,Pageable pageable);
 
     @Modifying

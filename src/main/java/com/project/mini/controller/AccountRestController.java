@@ -25,4 +25,8 @@ public class AccountRestController {
         Page<AccountDto> result = accountService.userAccountList(userid, pageNum);
         return result.getContent();
     }
+    @GetMapping("/findName")
+    public String findName(String accountNumber){
+        return accountService.findName(accountNumber);
+    }
 }

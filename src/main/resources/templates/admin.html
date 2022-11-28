@@ -3,24 +3,16 @@
 <head th:replace="fragments/base :: common_head(~{::title},~{::link},~{::script})">
     <title>SRBANK</title>
     <link th:href="@{/css/login.css}" rel="stylesheet">
-    <script></script>
+    <script>
+        $(window).on("load resize ", function() {
+            var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+            $('.tbl-header').css({'padding-right':scrollWidth});
+        }).resize();
+    </script>
 </head>
 <body>
 <th:block th:replace="fragments/headerAndFooter :: headerFragment"></th:block>
-<section >
-    <div class="container">
-        <div class="row">
-            <div class="help clearfix">
-                <article class="help_box2">
-                    <h3><em>관리자 페이지</em></h3>
-                    <div style="margin:auto; text-align: center; border:0px;">
-                        <button id="deniedHomeBtn" onclick="location.href='/'">홈으로 가기</button>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
-</section>
+<th:block th:replace="fragments/content :: admin"></th:block>
 <th:block th:replace="fragments/headerAndFooter :: footerFragment"></th:block>
 </body>
 </html>

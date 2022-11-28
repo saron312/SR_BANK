@@ -3,6 +3,7 @@ package com.project.mini.sevice;
 import com.project.mini.domain.entity.Account;
 import com.project.mini.domain.repository.AccountRepository;
 import com.project.mini.dto.AccountDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,20 +12,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;
-
     private final MemberService memberService;
-
-    @Autowired
-    public AccountServiceImpl(AccountRepository accountRepository, MemberService memberService) {
-        this.accountRepository = accountRepository;
-        this.memberService = memberService;
-    }
 
     /* SRBANK 계좌번호 생성하기 */
     @Override
@@ -79,6 +73,11 @@ public class AccountServiceImpl implements AccountService {
         return AccountDto.builder()
                 .aId(account.getAId())
                 .mId(account.getMId()).build();
+    }
+
+    @Override
+    public String findName(String accountNumber) {
+        return accountRepository.name(accountNumber).orElse("0");
     }
 
 
