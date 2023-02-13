@@ -28,7 +28,7 @@ public class MemberController {
     // 회원가입 페이지
     @GetMapping("/join")
     public String join(Principal principal) {
-        if(Principal.class.isInstance(principal)) {
+        if(principal != null) {
             return "redirect:/";
         }
         return "join";
@@ -44,7 +44,7 @@ public class MemberController {
     // 로그인 페이지
     @GetMapping("/login")
     public String login(Principal principal) {
-        if(Principal.class.isInstance(principal)) {
+        if(principal != null) {
             return "redirect:/";
         }
             return "login";
