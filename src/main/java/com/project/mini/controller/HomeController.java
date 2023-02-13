@@ -24,7 +24,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Principal principal, Model model){
-        if(Principal.class.isInstance(principal)){
+        if(principal != null){
             Page<AccountDto> accountDto = accountService.userAccountList(principal.getName(), 0);
             model.addAttribute("page", accountDto);
             return "index";

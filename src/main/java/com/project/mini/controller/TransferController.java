@@ -17,7 +17,7 @@ public class TransferController {
 
     @PostMapping("/account")
     public String dw(String accountNumber, String bankName, Model model, Principal principal){
-        if(!Principal.class.isInstance(principal)){
+        if(principal == null){
             return "redirect:/";
         }
         Page<TransferDto> dwList = transferService.transferPage(accountNumber,0);
@@ -29,7 +29,7 @@ public class TransferController {
 
     @PostMapping("/send")
     public String send(Principal principal,String accountNumber,String bankName, String total, Model model){
-        if(!Principal.class.isInstance(principal)){
+        if(principal == null){
             return "redirect:/";
         }
         model.addAttribute("remittance",transferService.remittance(accountNumber));
@@ -41,7 +41,7 @@ public class TransferController {
 
     @PostMapping("/sendResult")
     public String sendResult(Principal principal,String sendAccountNumber, String counterparty,String sendMoney){
-        if(!Principal.class.isInstance(principal)){
+        if(principal == null){
             return "redirect:/";
         }
         transferService.sendMoney(sendAccountNumber,counterparty,Long.valueOf(sendMoney));
