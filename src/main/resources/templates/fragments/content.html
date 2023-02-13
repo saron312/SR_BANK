@@ -48,7 +48,7 @@
                 <article class="help_box2">
                     <h3><em>로그인</em></h3>
                     <div id="loginErrorDiv" th:if="${param.error}">
-                        <span id="loginError">비밀번호를 잘못 입력했습니다. 다시 입력해주세요.</span>
+                        <span id="loginError">아이디 또는 비밀번호를 잘못 입력했습니다. 다시 입력해주세요.</span>
                     </div>
                     <div class="login">
                         <form action="/user/login" id="loginSubmit" method="post">
@@ -361,7 +361,7 @@
                             <div class="title" style="display: inline-block; width: 48%">
                                 <p th:text="아이디 "/>
                                 <p th:text="휴대전화"/>
-                                <p th:text="휴대전화"/>
+                                <p th:text="이름"/>
                                 <p th:text="가입날짜"/>
                             </div>
                             <div class="result" style="display: inline-block; width: 50%">

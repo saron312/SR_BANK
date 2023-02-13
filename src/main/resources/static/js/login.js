@@ -12,32 +12,31 @@ $(document).ready(function () {
     $("#userId").blur(function () {
         let idError = $("#idError");
         ///ajax 조건식//
-        $.ajax({
-            url: '/idCheck',
-            type: 'get',
-            data: {userId : $("#userId").val()},
-            dataType: 'text',
-            success: function (check) {	// 통신 성공 시 "true" 혹은 "false" 반환
-                if (check == "true") { // 아이디가 이미 존재함
-                    //console.log(check);	// 확인용
-                    idError.hide();
-                    resid = true;
-                } else {// "false" 일 경우 - 아이디가 존재하지 않을 경우
+        // $.ajax({
+        //     url: '/idCheck',
+        //     type: 'get',
+        //     data: {userId : $("#userId").val()},
+        //     dataType: 'text',
+        //     success: function (check) {	// 통신 성공 시 "true" 혹은 "false" 반환
+        //         if (check == "true") { // 아이디가 이미 존재함
+        //             //console.log(check);	// 확인용
+        //             idError.hide();
+        //             resid = true;
+        //         } else {// "false" 일 경우 - 아이디가 존재하지 않을 경우
                     //console.log(check);	// 확인용
                     let id = $("#userId").val();
                     if (id === null || id === '') { //값이 없을 때
                         idError.show().text("아이디를 입력해주세요.");
                         return resid = false;
-                    } else {
-                        idError.show().text("존재하지 않는 아이디입니다.");
-                        return resid = false;
+                    } else{
+                        return resid = true;
                     }
-                }
-            },
-            error: function () {
-                console.log("아이디 체크 오류");
-            }
-        });
+                // }
+            // },
+            // error: function () {
+            //     console.log("아이디 체크 오류");
+            // }
+        // });
     });
 
 
