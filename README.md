@@ -17,7 +17,7 @@
 - OS : MAC
 - 개발언어 : JAVA,SQL,HTML5,CSS3,JavaScript,Jquery
 
-### ERD
-<img src = "https://user-images.githubusercontent.com/67586183/216825189-6effec0a-8eb7-4762-bdd8-149e89a886e7.png" width="50%" height="50%">
+<!-- ### ERD -->
+<!-- <img src = "https://user-images.githubusercontent.com/67586183/216825189-6effec0a-8eb7-4762-bdd8-149e89a886e7.png" width="50%" height="50%"> -->
 
 
