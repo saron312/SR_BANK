@@ -1,7 +1,7 @@
 # SR BANK
 > Toy Project - 은행 송금 웹사이트
 
-<img src="https://user-images.githubusercontent.com/67586183/216825121-a7b1c067-4d7a-4ff6-a460-c26a44b0fed0.png" width="50%" height="50%">
+<img src="https://user-images.githubusercontent.com/67586183/216825121-a7b1c067-4d7a-4ff6-a460-c26a44b0fed0.png" width="60%" height="60%">
 
 ### 프로젝트 요약
 
@@ -27,7 +27,7 @@
   <details>
     <summary>ERD</summary>
       <div markdown="1">
-       　　<img src = "https://user-images.githubusercontent.com/67586183/219855602-d2d8a78d-3495-449e-972a-38df19616edb.png" width="40%" height="40%"> 
+       　　<img src = "https://user-images.githubusercontent.com/67586183/219855602-d2d8a78d-3495-449e-972a-38df19616edb.png" width="50%" height="50%"> 
       </div>
   </details>  
   
