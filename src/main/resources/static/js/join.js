@@ -139,7 +139,7 @@ $(document).ready(function () {
     $("#joinBtn1").click(function () {
         //alert(resId+","+resPw+","+resPw2+","+resName+","+resPhone); //확인용
         if (resId === true && resPw === true && resPw2 === true && resName === true && resPhone === true) { //모두 true
-            alert($("#userId").val());
+            // alert($("#userId").val());
             return true;
         } else { //하나라도 false가 있을 때
             alert("내용을 다 채우세요."); //확인용
