@@ -1,12 +1,13 @@
 # SR BANK
 > Toy Project - 은행 송금 웹사이트
 
-<img src="https://user-images.githubusercontent.com/67586183/216825121-a7b1c067-4d7a-4ff6-a460-c26a44b0fed0.png">
+<img src="https://user-images.githubusercontent.com/67586183/216825121-a7b1c067-4d7a-4ff6-a460-c26a44b0fed0.png" width="50%" height="50%">
 
 ### 프로젝트 요약
+
 - 개발 기간 : 2022.08.29~2022.09.23
 - 주요 기능 : 회원가입, 로그인, 회원 정보 확인, 내 계좌 목록보기, 거래 내역 조회 , DB안에 있는 계좌로 송금하기, 관리자 아이디로 로그인  회원 목록 확인하기
-- 프로젝트 개발 배경 및 목적 : Spring Boot와 JPA를 배우며 처음으로 제작한 프로젝트입니다. 짧은 기간동안 spring MVC와 DB설계 대해 더 공부하고, spring security를 적용해볼 수 있는 프로젝트를 고민하다가 실생활에서 자주 사용하는 사이트 중 가장 만들어보고 싶었던 **은행 송금 사이트**를 만들게 되었습니다. 회원이면 본인의 계좌목록, 거래내역을 조회할 수 있고 DB내에 있는 계좌로 송금하기가 가능합니다. 사용자들이 편리하게 한 눈에 필요한 목록들을 볼 수 있게 개발하려고 노력했습니다.
+- 프로젝트 개발 배경 및 목적 : Spring Boot와 JPA를 배우며 처음으로 제작한 프로젝트입니다. 짧은 기간동안 spring MVC와 DB설계 대해 더 공부하고, spring security를 적용해볼 수 있는 프로젝트를 고민하다가 실생활에서 자주 사용하는 사이트 중 가장 만들어보고 싶었던 **은행 송금 사이트** 를 만들게 되었습니다. 회원이면 본인의 계좌목록, 거래내역을 조회할 수 있고 DB내에 있는 계좌로 송금하기가 가능합니다. 사용자들이 편리하게 한 눈에 필요한 목록들을 볼 수 있게 개발하려고 노력했습니다.
 
 ### 개발환경 및 개발언어
 - IDE : IntelliJ
@@ -20,4 +21,21 @@
 <!-- ### ERD -->
 <!-- <img src = "https://user-images.githubusercontent.com/67586183/216825189-6effec0a-8eb7-4762-bdd8-149e89a886e7.png" width="50%" height="50%"> -->
 
-
+<details>
+  <summary><h3><strong>상세내용</strong></h3></summary>
+  
+  <details>
+    <summary>ERD</summary>
+      <div markdown="1">
+       　　<img src = "https://user-images.githubusercontent.com/67586183/219855602-d2d8a78d-3495-449e-972a-38df19616edb.png" width="40%" height="40%"> 
+      </div>
+  </details>  
+  
+  <details>
+    <summary>회원가입</summary>
+      <div markdown="1">
+<!--        　　<img src = "https://user-images.githubusercontent.com/67586183/219855602-d2d8a78d-3495-449e-972a-38df19616edb.png" width="50%" height="50%">  -->
+      </div>
+  </details>  
+  
+</details>
