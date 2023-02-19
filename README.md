@@ -21,21 +21,51 @@
 <!-- ### ERD -->
 <!-- <img src = "https://user-images.githubusercontent.com/67586183/216825189-6effec0a-8eb7-4762-bdd8-149e89a886e7.png" width="50%" height="50%"> -->
 
-<details>
+### 상세내용
+
+<!--<details>
   <summary><h3><strong>상세내용</strong></h3></summary>
+-->
+<details>
+  <summary>ERD</summary>
+  <div markdown="1">
+    <img src = "https://user-images.githubusercontent.com/67586183/219945479-66713be0-0eae-4156-accf-dc91e43d4536.png" width="50%" height="50%"> 
+  </div>
+</details>  
   
-  <details>
-    <summary>ERD</summary>
-      <div markdown="1">
-       　　<img src = "https://user-images.githubusercontent.com/67586183/219855602-d2d8a78d-3495-449e-972a-38df19616edb.png" width="50%" height="50%"> 
-      </div>
-  </details>  
+<details>
+  <summary>회원가입</summary>
+  <div markdown="1">
+    <video src="https://user-images.githubusercontent.com/67586183/219942243-bcf7c4c8-2055-4197-9c38-37f57b12edcf.mov">
+  </div>
+</details>  
   
-  <details>
-    <summary>회원가입</summary>
-      <div markdown="1">
-<!--        　　<img src = "https://user-images.githubusercontent.com/67586183/219855602-d2d8a78d-3495-449e-972a-38df19616edb.png" width="50%" height="50%">  -->
-      </div>
-  </details>  
-  
+<details>
+  <summary>로그인 + 내 정보 확인</summary>
+  <div markdown="1">
+    <video src="https://user-images.githubusercontent.com/67586183/219945444-f22c0d23-c9f4-4d2f-b349-ac8ddd8237ec.mov">
+  </div>
 </details>
+  
+<details>
+  <summary>계좌목록 + 거래내역 조회</summary>
+  <div markdown="1">
+    <video src="https://user-images.githubusercontent.com/67586183/219948160-cb2a8bcf-201c-461b-81ea-dd78eac8a734.mov">
+  </div>
+</details>
+
+<details>
+  <summary>송금하기</summary>
+  <div markdown="1">
+    <video src="https://user-images.githubusercontent.com/67586183/219946405-f1520e6f-a0e3-44aa-81a7-f810aa6fdbb8.mov">
+  </div>
+</details>
+  
+<details>
+  <summary>관리자 페이지</summary>
+  <div markdown="1">
+    <video src="https://user-images.githubusercontent.com/67586183/219946402-944c3a41-3de0-481d-8e05-2f9a04c0fc83.mov">
+  </div>
+</details>
+
+<!-- </details> -->
